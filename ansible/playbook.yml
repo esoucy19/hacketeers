@@ -1,0 +1,10 @@
+---
+- hosts: hacketeers-server
+  become: true
+  tasks:
+    - name: Copy ssh keys to user
+      authorized_key:
+        user: "{{ server_user }}"
+        state: present
+        key: "{{ item }}"
+      with_file: "{{ public_keys }}"

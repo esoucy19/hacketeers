@@ -1,0 +1,5 @@
+---
+server_user: hacketeers
+ansible_ssh_user: hacketeers
+public_keys:
+  - public_keys/esoucy
