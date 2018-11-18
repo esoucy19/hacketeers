@@ -137,4 +137,4 @@ ALL['volunteer_experiences'] = [dict(PART_EIGHT)]
 
 print(ALL)
 
-# generate(ALL)
+generate(ALL)
