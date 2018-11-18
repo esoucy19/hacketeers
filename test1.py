@@ -1,8 +1,9 @@
 # questions.py
 
 from questionnaire import Questionnaire
-from languages import every_language,language_name_list
+from languages import every_language, language_name_list
 from google.cloud import *
+from generator import generate
 
 q = Questionnaire()
 q.one("What is your language", 'Afrikaans', 'Albanian', 'Amharic', 'Arabic', 'Armenian', 'Azerbaijani', 'Basque', 'Belarusian', 'Bengali', 'Bosnian', 'Bulgarian', 'Catalan', 'Cebuano', 'Chichewa', 'Chinese (Simplified)', 'Chinese (Traditional)', 'Corsican', 'Croatian', 'Czech', 'Danish', 'Dutch', 'English', 'Esperanto', 'Estonian', 'Filipino', 'Finnish', 'French', 'Frisian', 'Galician', 'Georgian', 'German', 'Greek', 'Gujarati', 'Haitian Creole', 'Hausa', 'Hawaiian', 'Hebrew', 'Hindi', 'Hmong', 'Hungarian', 'Icelandic', 'Igbo', 'Indonesian', 'Irish', 'Italian', 'Japanese', 'Javanese', 'Kannada', 'Kazakh', 'Khmer', 'Korean', 'Kurdish (Kurmanji)', 'Kyrgyz', 'Lao', 'Latin', 'Latvian', 'Lithuanian', 'Luxembourgish', 'Macedonian', 'Malagasy', 'Malay', 'Malayalam', 'Maltese', 'Maori', 'Marathi', 'Mongolian', 'Myanmar (Burmese)', 'Nepali', 'Norwegian', 'Pashto', 'Persian', 'Polish', 'Portuguese', 'Punjabi', 'Romanian', 'Russian', 'Samoan', 'Scots Gaelic', 'Serbian', 'Sesotho', 'Shona', 'Sindhi', 'Sinhala', 'Slovak', 'Slovenian', 'Somali', 'Spanish', 'Sundanese', 'Swahili', 'Swedish', 'Tajik', 'Tamil', 'Telugu', 'Thai', 'Turkish', 'Ukrainian', 'Urdu', 'Uzbek', 'Vietnamese', 'Welsh', 'Xhosa', 'Yiddish', 'Yoruba', 'Zulu')
@@ -52,7 +53,7 @@ try:
         que.raw(translate_client.translate("name",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('Name of institute?',target_language=abbreviated_language)['translatedText'])
         que.raw(translate_client.translate("start_year",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('What year did you attend?',target_language=abbreviated_language)['translatedText'])
         que.raw(translate_client.translate("end_year",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('What year did you Graduate?',target_language=abbreviated_language)['translatedText'])
-    
+
 except:
     print("Number only, " + translate_client.translate('number only',target_language=abbreviated_language)['translatedText'])
 
@@ -73,7 +74,7 @@ try:
     PART_FOUR = int(PART_FOUR[0][1])
     quest = Questionnaire()
     for i in range(PART_FOUR):
-        quest.raw(translate_client.translate("Position",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('what is the job title? ',target_language=abbreviated_language)['translatedText'])
+        quest.raw(translate_client.translate("position",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('what is the job title? ',target_language=abbreviated_language)['translatedText'])
         quest.raw(translate_client.translate("start_date",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('dd/mm/yyyy start date?',target_language=abbreviated_language)['translatedText'])
         quest.raw(translate_client.translate("end_date",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('dd/mm/yyyy end date?',target_language=abbreviated_language)['translatedText'])
         quest.raw(translate_client.translate("institution",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('What is the company name?',target_language=abbreviated_language)['translatedText'])
@@ -83,16 +84,15 @@ except:
     print("Number only, " + translate_client.translate('number only',target_language=abbreviated_language)['translatedText'])
 
 
-   
 quest.run()
 quest.format_answers(fmt='array')
 PART_FIVE = "PART_FIVE = " + quest.format_answers(fmt='array')
 exec(PART_FIVE)
 
-ALL = PART_ONE + PART_THREE + PART_FIVE
-
-ALL = dict(ALL)
+ALL = dict(PART_ONE)  # + PART_THREE + PART_FIVE
+ALL['schools'] = [dict(PART_THREE)]
+ALL['jobs'] = [dict(PART_FIVE)]
 
 print(ALL)
 
-
+generate(ALL)

@@ -4,7 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-"jinja2" = "*"
+jinja2 = "*"
 pylatex = "*"
+questionnaire = "*"
+google-cloud-translate = "*"
 
 [dev-packages]

@@ -18,7 +18,7 @@ latex_jinja_env = jinja2.Environment(
 )
 
 
-def generate(vars_dict, latex_jinja_env):
+def generate(vars_dict, latex_jinja_env=latex_jinja_env):
     timestamp = str(time.time())
     data = render(vars_dict, latex_jinja_env)
     pwd = os.path.abspath('.')
