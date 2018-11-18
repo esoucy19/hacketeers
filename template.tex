@@ -44,9 +44,13 @@
 % VARIABLES
 %--------------
 
-\newcommand{\school}{\bf{\VAR{schools[0].name}} \hfill \em {\VAR{schools[0].start_year} - \VAR{schools[0].end_year}}
-\\ \VAR{schools[0].degree} \hfill { GPA }
-\\ \VAR{schools[0].department} } 
+% \newcommand{\school}{\bf{\VAR{schools[0].name}} \hfill \em {\VAR{schools[0].start_year} - \VAR{schools[0].end_year}}
+% \\ \VAR{schools[0].degree} \hfill { GPA }
+% \\ \VAR{schools[0].department} } 
+
+\newcommand{\school}[3]{
+  \bf{#1} \hfill \em #2 - #3
+}
 
 \newcommand{\job}{
 \begin{rSubsection}{POSITION}{STARTDATE - ENDDATE}{INSTITUTION}{}
@@ -74,7 +78,9 @@ SKILL & EXAMPLE1, EXAMPLE2, EXAMPLE3 \\
 \begin{rSection}{Education}
 
 %{\bf \schoolname{}} \hfill {\em July 2008 - Present} 
-\school{}
+\BLOCK{ for school in schools }
+\school{\VAR{school.name}}{\VAR{school.start_year}}{\VAR{school.end_year}} \\
+\BLOCK{ endfor }
 %Minor in Linguistics \smallskip \\
 %Member of Eta Kappa Nu \\
 %Member of Upsilon Pi Epsilon \\
