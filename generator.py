@@ -65,7 +65,9 @@ if __name__ == '__main__':
             {
                 'name': 'École Polytechnique de Montréal',
                 'start_year': '2009',
-                'end_year': '2011'
+                'end_year': '2011',
+                'degree': 'Masters',
+                'department': 'Computer Science'
             },
             {
                 'name': 'Université de Montréal',
