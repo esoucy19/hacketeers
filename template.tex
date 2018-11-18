@@ -32,11 +32,10 @@
 \usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry} % Document margins
 \newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
 \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
-\name{\VAR{first_name} LASTNAME} % Your name
-\address{STREETNUMBER STREETNAME \\ CITY , COUNTRY POSTALCODE} % Your address
+\name{\VAR{first_name} \VAR{last_name}} % Your name
+\address{ \VAR{address_line_1} \\ \VAR{address_line_2}} % Your address
 %\address{123 Pleasant Lane \\ City, State 12345} % Your secondary addess (optional)
-\address{ PHONENUMBER \\ EMAIL} % Your phone number and email
-
+\address{ \VAR{phone_number} \\ \VAR{email}} % Your phone number and email
 
 
 \begin{document}
@@ -45,7 +44,7 @@
 % VARIABLES
 %--------------
 
-\newcommand{\school}{\bf{SCHOOLNAME} \hfill \em {STARTDATE - ENDDATE}
+\newcommand{\school}{\bf{\VAR{schools[0].name}} \hfill \em {\VAR{schools[0].start_year} - \VAR{schools[0].end_year}}
 \\ DEGREE \hfill { GPA }
 \\ DEPARTMENT } 
 

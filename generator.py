@@ -57,6 +57,10 @@ if __name__ == '__main__':
     dict = {
         'first_name': 'Etienne',
         'last_name': 'Soucy',
+        'address_line_1': '1050 Amesbury #930',
+        'address_line_2': 'Montreal, Canada, H9J 1G6',
+        'phone_number': '514-690-3373',
+        'email': 'monagz@gmail.com',
         'schools': [
             {
                 'name': 'École Polytechnique de Montréal',
