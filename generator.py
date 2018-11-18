@@ -68,11 +68,12 @@ if __name__ == '__main__':
                 'end_year': '2011',
                 'degree': 'Masters',
                 'department': 'Computer Science'
-            }, 
-            {
+            }, {
                 'name': 'Université de Montréal',
                 'start_year': '2011',
-                'end_year': '2012'
+                'end_year': '2012',
+                'degree': 'Bachelor\'s',
+                'department': 'Chemical Engineering'
             }
         ],
         'jobs': [
@@ -86,9 +87,16 @@ if __name__ == '__main__':
                     'Pushed to dev',
                     'Tested all the code'
                 ]
-            },
-            {
-                
+            }, {
+                'position': 'IT support technician',
+                'start_date': '2015',
+                'end_date': '2017',
+                'institution': 'LCPC Informatique',
+                'tasks': [
+                    'End user support',
+                    'Troubleshooting',
+                    'Assembly and installation of computer equipment'
+                ]
             }
         ]
     }
