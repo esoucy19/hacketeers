@@ -46,7 +46,6 @@ exec(PART_TWO)
 
 try:
     num1 = int(PART_TWO[0][1])
-    print(type(num1))
     que = Questionnaire()
     for i in range(num1):
         que.one(translate_client.translate("degree",target_language=abbreviated_language)['translatedText'], translate_client.translate('Certificate',target_language=abbreviated_language)['translatedText'], translate_client.translate('Diploma',target_language=abbreviated_language)['translatedText'],translate_client.translate("Bachelors",target_language=abbreviated_language)['translatedText'],translate_client.translate("Masters",target_language=abbreviated_language)['translatedText'],translate_client.translate("PhD",target_language=abbreviated_language)['translatedText'])
@@ -89,6 +88,19 @@ quest.format_answers(fmt='array')
 PART_FIVE = "PART_FIVE = " + quest.format_answers(fmt='array')
 exec(PART_FIVE)
 
+questi = Questionnaire()
+questi.many("Choose the languages you speak", 'Afrikaans', 'Albanian', 'Amharic', 'Arabic', 'Armenian', 'Azerbaijani', 'Basque', 'Belarusian', 'Bengali', 'Bosnian', 'Bulgarian', 'Catalan', 'Cebuano', 'Chichewa', 'Chinese (Simplified)', 'Chinese (Traditional)', 'Corsican', 'Croatian', 'Czech', 'Danish', 'Dutch', 'English', 'Esperanto', 'Estonian', 'Filipino', 'Finnish', 'French', 'Frisian', 'Galician', 'Georgian', 'German', 'Greek', 'Gujarati', 'Haitian Creole', 'Hausa', 'Hawaiian', 'Hebrew', 'Hindi', 'Hmong', 'Hungarian', 'Icelandic', 'Igbo', 'Indonesian', 'Irish', 'Italian', 'Japanese', 'Javanese', 'Kannada', 'Kazakh', 'Khmer', 'Korean', 'Kurdish (Kurmanji)', 'Kyrgyz', 'Lao', 'Latin', 'Latvian', 'Lithuanian', 'Luxembourgish', 'Macedonian', 'Malagasy', 'Malay', 'Malayalam', 'Maltese', 'Maori', 'Marathi', 'Mongolian', 'Myanmar (Burmese)', 'Nepali', 'Norwegian', 'Pashto', 'Persian', 'Polish', 'Portuguese', 'Punjabi', 'Romanian', 'Russian', 'Samoan', 'Scots Gaelic', 'Serbian', 'Sesotho', 'Shona', 'Sindhi', 'Sinhala', 'Slovak', 'Slovenian', 'Somali', 'Spanish', 'Sundanese', 'Swahili', 'Swedish', 'Tajik', 'Tamil', 'Telugu', 'Thai', 'Turkish', 'Ukrainian', 'Urdu', 'Uzbek', 'Vietnamese', 'Welsh', 'Xhosa', 'Yiddish', 'Yoruba', 'Zulu')
+
+questi.run()
+PART_SIX = questi.format_answers(fmt='array')
+PART_SIX = "PART_SIX = " + questi.format_answers(fmt='array')
+exec(PART_SIX)
+
+
+ALL = dict(PART_ONE)  # + PART_THREE + PART_FIVE
+ALL['schools'] = [dict(PART_THREE)]
+ALL['jobs'] = [dict(PART_FIVE)]
+ALL["languages"] = PART_SIX[0][1]
 ALL = dict(PART_ONE)  # + PART_THREE + PART_FIVE
 ALL['schools'] = [dict(PART_THREE)]
 ALL['jobs'] = [dict(PART_FIVE)]
