@@ -52,6 +52,7 @@ try:
         que.raw(translate_client.translate("name",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('Name of institute?',target_language=abbreviated_language)['translatedText'])
         que.raw(translate_client.translate("start_year",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('What year did you attend?',target_language=abbreviated_language)['translatedText'])
         que.raw(translate_client.translate("end_year",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('What year did you Graduate?',target_language=abbreviated_language)['translatedText'])
+        que.raw(translate_client.translate("department",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('What is the program of study?',target_language=abbreviated_language)['translatedText'])
 
 except:
     print("Number only, " + translate_client.translate('number only',target_language=abbreviated_language)['translatedText'])
