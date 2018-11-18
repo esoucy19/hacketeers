@@ -1,0 +1,143 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This resume template by Mona Ghassemi
+% Modified from a Template 
+% Downloaded From: 
+% https://www.overleaf.com/latex/templates/cv-for-freshers/jkpwvnrdrxpm
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Notes in Original: 
+%
+% Medium Length Professional CV
+% LaTeX Template
+% Version 2.0 (8/5/13)
+%
+%
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Trey Hunner (http://www.treyhunner.com/)
+%
+% Important note:
+% This template requires the resume.cls file to be in the same directory as the
+% .tex file. The resume.cls file provides the resume style used for structuring the
+% document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{resume} % Use the custom resume.cls style
+
+\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry} % Document margins
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\name{FIRSTNAME LASTNAME} % Your name
+\address{STREETNUMBER STREETNAME \\ CITY , COUNTRY POSTALCODE} % Your address
+%\address{123 Pleasant Lane \\ City, State 12345} % Your secondary addess (optional)
+\address{ PHONENUMBER \\ EMAIL} % Your phone number and email
+
+
+
+\begin{document}
+
+%--------------
+% VARIABLES
+%--------------
+
+\newcommand{\school}{\bf{SCHOOLNAME} \hfill \em {STARTDATE - ENDDATE}
+\\ DEGREE \hfill { GPA }
+\\ DEPARTMENT } 
+
+\newcommand{\job}{
+\begin{rSubsection}{POSITION}{STARTDATE - ENDDATE}{INSTITUTION}{}
+\item TASK1
+\item TASK2
+\item TASK3
+\end{rSubsection}
+}
+
+\newcommand{\award}{\item AWARD}
+
+\newcommand{\languages}{\item LANGUAGE}
+
+\newcommand{\skills}{
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+SKILL &  EXAMPLE1, EXAMPLE2 \\
+SKILL & EXAMPLE1, EXAMPLE2, EXAMPLE3 \\
+\end{tabular}
+}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Education}
+
+%{\bf \schoolname{}} \hfill {\em July 2008 - Present} 
+\school{}
+%Minor in Linguistics \smallskip \\
+%Member of Eta Kappa Nu \\
+%Member of Upsilon Pi Epsilon \\
+
+
+\end{rSection}
+
+
+%----------------------------------------------------------------------------------------
+%LANGUAGES
+%----------------------------------------------------------------------------------------
+\begin{rSection}{Languages}
+
+\languages{}
+
+\end{rSection}
+%----------------------------------------------------------------------------------------
+%	TECHNICAL SKILLS SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Technical Skills}
+
+\skills{}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Work Experience}
+
+\job{}
+
+%------------------------------------------------
+
+\end{rSection}
+
+
+%	EXAMPLE SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Awards and Honours} \itemsep -2pt
+
+\award{}
+\award{}
+\award{}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+\begin{rSection}{Volunteer Experience} \itemsep -3pt
+\job{}
+
+
+\end{rSection}
+
+\end{document}
