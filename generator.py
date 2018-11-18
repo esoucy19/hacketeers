@@ -76,6 +76,15 @@ if __name__ == '__main__':
                 'department': 'Chemical Engineering'
             }
         ],
+        'languages': [
+            'French',
+            'English'
+        ],
+        'technical_skills': [
+            'Microsoft Office (Word, Excel, Outlook)',
+            'Programming languages: Python, Java, Perl',
+            'Databases: Mysql, Oracle'
+        ],
         'jobs': [
             {
                 'position': 'QA specialist',
@@ -97,6 +106,29 @@ if __name__ == '__main__':
                     'Troubleshooting',
                     'Assembly and installation of computer equipment'
                 ]
+            }
+        ],
+        'awards': [
+            {
+                'award': 'Meritas student prize',
+                'date': '2017',
+                'institution': 'McGill University'
+            }, {
+                'award': 'Examplary implication',
+                'date': '2015',
+                'institution': 'École Polytechnique de Montréal'
+            }
+        ],
+        'volunteer_experiences': [
+            {
+                'date': '2012, 2013, 2014',
+                'institution': 'Food Against Fascism',
+                'role': 'Distributed food to guests'
+            },
+            {
+                'date': '2015, 2016',
+                'institution': 'People\'s Potato',
+                'role': 'Cooking, plunger, cleaning'
             }
         ]
     }
