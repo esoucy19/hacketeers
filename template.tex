@@ -1,4 +1,4 @@
-% This resume template by Mona Ghassemi
+% This resume template by Mona Ghassemi and Etienne Soucy
 % Modified from a Template 
 % Downloaded From: 
 % https://www.overleaf.com/latex/templates/cv-for-freshers/jkpwvnrdrxpm
@@ -29,123 +29,101 @@
 
 \documentclass{resume} % Use the custom resume.cls style
 
-\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry} % Document margins
-\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
-\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+% MARGINS
+\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry}
+
+
+% OUTLINE
 \name{\VAR{first_name} \VAR{last_name}} % Your name
 \address{ \VAR{address_line_1} \\ \VAR{address_line_2}} % Your address
-%\address{123 Pleasant Lane \\ City, State 12345} % Your secondary addess (optional)
 \address{ \VAR{phone_number} \\ \VAR{email}} % Your phone number and email
 
+% CUSTOM COMMANDS
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
 
+% CUSTOM HEADINGS
+\newcommand{\sectionHeading}[3]{
+  \textbf{#1 \hfill \em #2 - #3}
+
+}
+\newcommand{\sectionHeadingNoDash}[2]{
+  \textbf{#1 \hfill \em #2}
+
+}
+
+
+% START
 \begin{document}
 
-%--------------
-% VARIABLES
-%--------------
-\newcommand{\school}[3]{
-  \bf{#1} \hfill \em #2 - #3
-}
 
-%\newcommand{\job}[5]{
-%}
-
-%\newcommand{\job}{
-%\begin{rSubsection}{POSITION}{STARTDATE - ENDDATE}{INSTITUTION}{}
-%\item TASK1
-%\item TASK2
-%\item TASK3
-%\end{rSubsection}
-%}
-
-\newcommand{\award}{\item AWARD}
-
-\newcommand{\languages}{\item LANGUAGE}
-
-\newcommand{\skills}{
-\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
-SKILL &  EXAMPLE1, EXAMPLE2 \\
-SKILL & EXAMPLE1, EXAMPLE2, EXAMPLE3 \\
-\end{tabular}
-}
-
-%----------------------------------------------------------------------------------------
-%	EDUCATION SECTION
-%----------------------------------------------------------------------------------------
-
+% EDUCATION
 \begin{rSection}{Education}
+  \BLOCK{ for school in schools }
+  \sectionHeading{\VAR{school.name}}{\VAR{school.start_year}}{\VAR{school.end_year}}
+  
+Degree: \VAR{ school.degree }
 
-%{\bf \schoolname{}} \hfill {\em July 2008 - Present} 
-\BLOCK{ for school in schools }
-\school{\VAR{school.name}}{\VAR{school.start_year}}{\VAR{school.end_year}} \\
+Department: \VAR{ school.department }
+
 \BLOCK{ endfor }
-%Minor in Linguistics \smallskip \\
-%Member of Eta Kappa Nu \\
-%Member of Upsilon Pi Epsilon \\
-
-
 \end{rSection}
 
 
-%----------------------------------------------------------------------------------------
-%LANGUAGES
-%----------------------------------------------------------------------------------------
+% LANGUAGES
 \begin{rSection}{Languages}
-
-\languages{}
-
-\end{rSection}
-%----------------------------------------------------------------------------------------
-%	TECHNICAL SKILLS SECTION
-%----------------------------------------------------------------------------------------
-
-\begin{rSection}{Technical Skills}
-
-\skills{}
-
+  \begin{itemize}
+    \BLOCK{ for language in languages }
+  \item \VAR{ language }
+    \BLOCK{ endfor }
+  \end{itemize}
 \end{rSection}
 
-%----------------------------------------------------------------------------------------
-%	WORK EXPERIENCE SECTION
-%----------------------------------------------------------------------------------------
 
+% TECHNICAL SKILLS
+% \begin{rSection}{Technical Skills}
+%   \begin{itemize}
+%     \BLOCK{ for skill in technical_skills } 
+%   \item \VAR{ skill }
+%     \BLOCK{ endfor }
+%   \end{itemize}
+% \end{rSection}
+
+
+% WORK EXPERIENCE
 \begin{rSection}{Work Experience}
+  \BLOCK{ for job in jobs }
+  \sectionHeading{\VAR{ job.position }}{\VAR{ job.start_date }}{\VAR{ job.end_date }}}
+    
+    ~\large{\textit{\VAR{ job.institution }}}
 
-\BLOCK{ for job in jobs }
-\begin{rSubsection}{\VAR{job.position}}{\VAR{job.start_date} - \VAR{job.end_date}}{
-    \VAR{job.institution}}{}
-  \end{rSubsection}
-%\job{\VAR{job.position}}{\VAR{job.start_date}}{\VAR{job.end_date}}{\VAR{job.institution}}
-    %{\VAR{job.tasks}}
- \BLOCK{for task in job.tasks}
-\item task
- \BLOCK{endfor}
-\BLOCK{endfor} 
-
-%------------------------------------------------
-
+    \begin{itemize}
+      \BLOCK{ for task in job.tasks }
+    \item \VAR{ task }
+      \BLOCK{ endfor }
+    \end{itemize}
+    \BLOCK{ endfor } 
 \end{rSection}
 
 
-%	EXAMPLE SECTION
-%----------------------------------------------------------------------------------------
-
-\begin{rSection}{Awards and Honours} \itemsep -2pt
-
-\award{}
-\award{}
-\award{}
-
-\end{rSection}
-
-%----------------------------------------------------------------------------------------
+% AWARDS AND HONOURS
+% \begin{rSection}{Awards and Honours}
+%   \begin{itemize}
+%     \BLOCK{ for award in awards }
+%     \item \VAR{ award.award }, \VAR{ award.date }, \VAR{ award.institution }
+%     \BLOCK{ endfor }
+%   \end{itemize}
+% \end{rSection}
 
 
-%----------------------------------------------------------------------------------------
+% VOLUNTEER EXPERIENCE
 \begin{rSection}{Volunteer Experience} \itemsep -3pt
-%\job{}
+  \BLOCK{ for experience in volunteer_experiences }
+  \sectionHeadingNoDash{\VAR{ experience.institution }}{\VAR{ experience.date }}
+  \VAR{ experience.role }
 
-
+  \BLOCK{ endfor }
 \end{rSection}
+
 
 \end{document}
