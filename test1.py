@@ -75,8 +75,8 @@ try:
     quest = Questionnaire()
     for i in range(PART_FOUR):
         quest.raw(translate_client.translate("position",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('what is the job title? ',target_language=abbreviated_language)['translatedText'])
-        quest.raw(translate_client.translate("start_date",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('dd/mm/yyyy start date?',target_language=abbreviated_language)['translatedText'])
-        quest.raw(translate_client.translate("end_date",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('dd/mm/yyyy end date?',target_language=abbreviated_language)['translatedText'])
+        quest.raw(translate_client.translate("start_date",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('what is the start year?',target_language=abbreviated_language)['translatedText'])
+        quest.raw(translate_client.translate("end_date",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('what is the end year?',target_language=abbreviated_language)['translatedText'])
         quest.raw(translate_client.translate("institution",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('What is the company name?',target_language=abbreviated_language)['translatedText'])
         quest.raw(translate_client.translate("task",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('give a brief description of your responsibilities',target_language=abbreviated_language)['translatedText'])
 
@@ -98,12 +98,52 @@ PART_SIX = "PART_SIX = " + questi.format_answers(fmt='array')
 exec(PART_SIX)
 
 
+
+
+
+
+questio = Questionnaire()
+questio.raw(translate_client.translate("Numbers of Volunteer Experiences Previously Held",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('Number of Volunteer Positions previously Held?',target_language=abbreviated_language)['translatedText'])
+questio.run()
+PART_SEVEN = "PART_SEVEN = " + questio.format_answers(fmt='array')
+exec(PART_SEVEN)
+
+
+
+
+try:
+    PART_SEVEN = int(PART_SEVEN[0][1])
+    question = Questionnaire()
+    for i in range(PART_SEVEN):
+        question.raw(translate_client.translate("date",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('what are the years?',target_language=abbreviated_language)['translatedText'])
+        question.raw(translate_client.translate("institution",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('What is the company name?',target_language=abbreviated_language)['translatedText'])
+        question.raw(translate_client.translate("role",target_language=abbreviated_language)['translatedText'],prompt=translate_client.translate('what is the your role?',target_language=abbreviated_language)['translatedText'])
+
+except:
+    print("Number only, " + translate_client.translate('number only',target_language=abbreviated_language)['translatedText'])
+
+
+question.run()
+PART_EIGHT = "PART_EIGHT = " + question.format_answers(fmt='array')
+exec(PART_EIGHT)
+
+
+
+
+
 ALL = dict(PART_ONE)  # + PART_THREE + PART_FIVE
 ALL['schools'] = [dict(PART_THREE)]
 ALL['jobs'] = [dict(PART_FIVE)]
-ALL['languages'] = PART_SIX[0][1]
+<<<<<<< HEAD
+=======
+ALL["languages"] = PART_SIX[0][1]
+ALL = dict(PART_ONE)  # + PART_THREE + PART_FIVE
+ALL['schools'] = [dict(PART_THREE)]
+ALL['jobs'] = [dict(PART_FIVE)]
 ALL['jobs'][0]['tasks'] = [ALL['jobs'][0]['task']]
+ALL['volunteer_experiences'] = [dict(PART_EIGHT)]
+>>>>>>> bb743edb82968d4011f42e75b5915f0e2fe7b873
 
 print(ALL)
 
-generate(ALL)
+# generate(ALL)
