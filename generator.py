@@ -46,6 +46,7 @@ def generate(vars_dict, latex_jinja_env):
     with open(tmptex, 'w') as tmp_file:
         tmp_file.write(data)
     os.system(command)
+    return ''.join([dir, '/template.pdf'])
 
 
 def render(vars_dict, latex_jinja_env):
