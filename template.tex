@@ -47,13 +47,16 @@
   \bf{#1} \hfill \em #2 - #3
 }
 
-\newcommand{\job}{
-\begin{rSubsection}{POSITION}{STARTDATE - ENDDATE}{INSTITUTION}{}
-\item TASK1
-\item TASK2
-\item TASK3
-\end{rSubsection}
-}
+%\newcommand{\job}[5]{
+%}
+
+%\newcommand{\job}{
+%\begin{rSubsection}{POSITION}{STARTDATE - ENDDATE}{INSTITUTION}{}
+%\item TASK1
+%\item TASK2
+%\item TASK3
+%\end{rSubsection}
+%}
 
 \newcommand{\award}{\item AWARD}
 
@@ -108,7 +111,16 @@ SKILL & EXAMPLE1, EXAMPLE2, EXAMPLE3 \\
 
 \begin{rSection}{Work Experience}
 
-\job{}
+\BLOCK{ for job in jobs }
+\begin{rSubsection}{\VAR{job.position}}{\VAR{job.start_date} - \VAR{job.end_date}}{
+    \VAR{job.institution}}{}
+  \end{rSubsection}
+%\job{\VAR{job.position}}{\VAR{job.start_date}}{\VAR{job.end_date}}{\VAR{job.institution}}
+    %{\VAR{job.tasks}}
+ \BLOCK{for task in job.tasks}
+\item task
+ \BLOCK{endfor}
+\BLOCK{endfor} 
 
 %------------------------------------------------
 
@@ -131,7 +143,7 @@ SKILL & EXAMPLE1, EXAMPLE2, EXAMPLE3 \\
 
 %----------------------------------------------------------------------------------------
 \begin{rSection}{Volunteer Experience} \itemsep -3pt
-\job{}
+%\job{}
 
 
 \end{rSection}

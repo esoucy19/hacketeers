@@ -68,11 +68,27 @@ if __name__ == '__main__':
                 'end_year': '2011',
                 'degree': 'Masters',
                 'department': 'Computer Science'
-            },
+            }, 
             {
                 'name': 'Université de Montréal',
                 'start_year': '2011',
                 'end_year': '2012'
+            }
+        ],
+        'jobs': [
+            {
+                'position': 'QA specialist',
+                'start_date': '2017',
+                'end_date': 'present',
+                'institution': 'peerio',
+                'tasks': [
+                    'Wrote documentation',
+                    'Pushed to dev',
+                    'Tested all the code'
+                ]
+            },
+            {
+                
             }
         ]
     }
