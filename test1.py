@@ -92,7 +92,7 @@ exec(PART_FIVE)
 ALL = dict(PART_ONE)  # + PART_THREE + PART_FIVE
 ALL['schools'] = [dict(PART_THREE)]
 ALL['jobs'] = [dict(PART_FIVE)]
-ALL['tasks'] = [ALL['jobs']['task']]
+ALL['tasks'] = [ALL['jobs'][0]['task']]
 
 print(ALL)
 
