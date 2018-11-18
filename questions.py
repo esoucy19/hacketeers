@@ -15,7 +15,7 @@ a = a.split(" ")
 abbreviated_language = language_name_list[every_language.index(a[-1])][0]
 
 # Instantiates a client
-translate_client = translate.Client() 
+translate_client = translate.Client()
 
 
 # Translates Quetionire into desired language
@@ -132,7 +132,7 @@ ALL = dict(PART_ONE)  # + PART_THREE + PART_FIVE
 ALL["languages"] = PART_SIX[0][1]
 ALL['schools'] = [dict(PART_THREE)]
 ALL['jobs'] = [dict(PART_FIVE)]
-ALL['jobs'][0]['tasks'] = [ALL['jobs'][0]['task']]
+ALL['jobs'][0]['tasks'] = [PART_FIVE[-1][1]]
 ALL['volunteer_experiences'] = [dict(PART_EIGHT)]
 
 print(ALL)
