@@ -128,21 +128,12 @@ PART_EIGHT = "PART_EIGHT = " + question.format_answers(fmt='array')
 exec(PART_EIGHT)
 
 
-
-
-
 ALL = dict(PART_ONE)  # + PART_THREE + PART_FIVE
-ALL['schools'] = [dict(PART_THREE)]
-ALL['jobs'] = [dict(PART_FIVE)]
-<<<<<<< HEAD
-=======
 ALL["languages"] = PART_SIX[0][1]
-ALL = dict(PART_ONE)  # + PART_THREE + PART_FIVE
 ALL['schools'] = [dict(PART_THREE)]
 ALL['jobs'] = [dict(PART_FIVE)]
 ALL['jobs'][0]['tasks'] = [ALL['jobs'][0]['task']]
 ALL['volunteer_experiences'] = [dict(PART_EIGHT)]
->>>>>>> bb743edb82968d4011f42e75b5915f0e2fe7b873
 
 print(ALL)
 
