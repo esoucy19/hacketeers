@@ -1,7 +1,6 @@
 import time
 import os
 import jinja2
-from pylatex import Document, NoEscape
 
 
 latex_jinja_env = jinja2.Environment(
@@ -19,16 +18,38 @@ latex_jinja_env = jinja2.Environment(
 )
 
 
-def generate(vars_dict):
+def generate(vars_dict, latex_jinja_env):
     timestamp = str(time.time())
-    tmp_path = ''.join(['tmp/', timestamp])
     data = render(vars_dict, latex_jinja_env)
-    document = Document(default_filepath=tmp_path, data=NoEscape(data))
-    document.generate_pdf()
+    pwd = os.path.abspath('.')
+    print(pwd)
+    tmpdir = ''.join([
+        'tmp/',
+        timestamp
+    ])
+    print(tmpdir)
+    tmptex = ''.join([
+        tmpdir,
+        '/template.tex'
+    ])
+    command = ''.join([
+        'latexmk --pdf --interaction=nonstopmode -outdir=',
+        tmpdir,
+        ' ',
+        tmpdir,
+        '/template.tex'
+    ])
+    dir = ''.join([pwd, '/', tmpdir])
+    print(dir)
+    if not os.path.exists(dir):
+        os.makedirs(dir)
+    with open(tmptex, 'w') as tmp_file:
+        tmp_file.write(data)
+    os.system(command)
 
 
 def render(vars_dict, latex_jinja_env):
-    template = latex_jinja_env.get_template('template.j2')
+    template = latex_jinja_env.get_template('template.tex')
     return template.render(vars_dict)
 
 
@@ -49,4 +70,4 @@ if __name__ == '__main__':
             }
         ]
     }
-    generate(dict)
+    generate(dict, latex_jinja_env)
