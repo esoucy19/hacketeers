@@ -93,16 +93,18 @@ Department: \VAR{ school.department }
 % WORK EXPERIENCE
 \begin{rSection}{Work Experience}
   \BLOCK{ for job in jobs }
-  \sectionHeading{\VAR{ job.position }}{\VAR{ job.start_date }}{\VAR{ job.end_date }}}
-    
-    ~\large{\textit{\VAR{ job.institution }}}
-
+  \sectionHeading{ {\VAR{job.position}}
+                   {\VAR{job.start_date}}
+                   {\VAR{job.end_date}}
+                 }
+    \large{\textit{\VAR{ job.institution }}}
     \begin{itemize}
       \BLOCK{ for task in job.tasks }
     \item \VAR{ task }
       \BLOCK{ endfor }
     \end{itemize}
-    \BLOCK{ endfor } 
+
+  \BLOCK{ endfor } 
 \end{rSection}
 
 
