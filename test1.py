@@ -101,11 +101,8 @@ exec(PART_SIX)
 ALL = dict(PART_ONE)  # + PART_THREE + PART_FIVE
 ALL['schools'] = [dict(PART_THREE)]
 ALL['jobs'] = [dict(PART_FIVE)]
-ALL["languages"] = PART_SIX[0][1]
-ALL = dict(PART_ONE)  # + PART_THREE + PART_FIVE
-ALL['schools'] = [dict(PART_THREE)]
-ALL['jobs'] = [dict(PART_FIVE)]
-ALL['tasks'] = [ALL['jobs'][0]['task']]
+ALL['languages'] = PART_SIX[0][1]
+ALL['jobs'][0]['tasks'] = [ALL['jobs'][0]['task']]
 
 print(ALL)
 
