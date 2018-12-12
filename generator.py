@@ -61,7 +61,7 @@ if __name__ == '__main__':
         'address_line_1': '1050 Amesbury apt. 930',
         'address_line_2': 'Montreal, Canada, H9J 1G6',
         'phone_number': '514-690-3373',
-        'email': 'monagz@gmail.com',
+        'email': 'test@mail.com',
         'schools': [
             {
                 'name': 'École Polytechnique de Montréal',
